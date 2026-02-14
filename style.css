@@ -1,0 +1,135 @@
+/* Body & Card */
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6e8, #fff0f6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    z-index: 2;
+    position: relative;
+    transition: background 0.5s ease;
+}
+
+h1 { color: #ff4d6d; }
+
+img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 12px 0;
+    transition: opacity 0.2s ease;
+}
+
+.buttons { margin-top: 15px; }
+
+button {
+    padding: 10px 22px;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0 6px;
+}
+
+#yesBtn { background: #ff6b81; color: white; }
+#noBtn { background: #ffc2d1; }
+
+/* Sad text */
+.sad-text {
+    min-height: 24px;
+    color: #ff4d6d;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#sadWall {
+    margin-top: 15px;
+    max-height: 220px;
+    overflow-y: auto;
+    text-align: center;
+    padding: 10px;
+    display: none;
+    border-radius: 15px;
+    background: #fff0f6;
+    box-shadow: inset 0 0 10px rgba(255, 107, 129, 0.2);
+}
+
+.sad-line {
+    font-size: 16px;
+    color: #ff4d6d;
+    margin: 8px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Clouds & rain */
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    display: none;
+}
+
+.cloud {
+    position: absolute;
+    background: #ccc;
+    border-radius: 50%;
+    opacity: 0.7;
+    filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    animation: hoverCloud 5s ease-in-out infinite alternate;
+}
+
+@keyframes hoverCloud {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(10px) translateX(15px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+.rain {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: #99ccff;
+    animation: fall 0.5s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0px); opacity: 1; }
+    100% { transform: translateY(300px); opacity: 0; }
+}
+
+/* Thunder flash */
+.thunder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.1s ease;
+}
